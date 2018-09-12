@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% macro render_pagination(pagination) %}
+  <div class=pagination>
+  {%- for page in pagination.iter_pages() %}
+    {% if page %}
+      {% if page != pagination.page %}
+        <a href="{{ url_for_other_page(page) }}">{{ page }}</a>
+      {% else %}
+        <strong>{{ page }}</strong>
+      {% endif %}
+    {% else %}
+      <span class=ellipsis>…</span>
+    {% endif %}
+  {%- endfor %}
+  {% if pagination.has_next %}
+    <a href="{{ url_for_other_page(pagination.page + 1)
+      }}">Next &raquo;</a>
+  {% endif %}
+  </div>
+{% endmacro %}
+{% macro renden_field(field) %}
+    {% if field.errors %}
+        {% for error in field.errors %}
+            <li style="font-size: medium">{{ error }}</li>
+        {% endfor %}
+    {% endif %}
+{% endmacro %}
+{% macro messages(get_flashed_messages) %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-danger">
+                <a href="#" class="close" data-dismiss="alert">×</a>
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+{% endmacro %}
+
+{#{% macro render_field(field) %}#}
+{#  <dt>{{ field.label }}#}
+{#  <dd>{{ field(**kwargs)|safe }}#}
+{#  {% if field.errors %}#}
+{#    <ul class=errors>#}
+{#    {% for error in field.errors %}#}
+{#      <li>{{ error }}</li>#}
+{#    {% endfor %}#}
+{#    </ul>#}
+{#  {% endif %}#}
+{#  </dd>#}
+{#{% endmacro %}#}
+</body>
+</html>

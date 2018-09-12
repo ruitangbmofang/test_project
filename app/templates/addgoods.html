@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>增加物品</title>
+</head>
+<body>
+{% from '_formhelpers.html' import renden_field,messages %}
+<form method="post">
+<p>
+    {{ messages(get_flashed_messages) }}
+</p>
+    <div class="panel-body">
+                <div class="form-group">
+                    {{ form.name.label(class="col-lg-2 col-sm-2 control-label") }}
+                    <div class="col-md-6">
+                        {{ form.name(class='from-control') }}
+                        {{ renden_field(form.name) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.goods_content.label(class="col-lg-2 col-sm-2 control-label") }}
+                    <div class="col-md-6">
+                        {{ form.goods_content(class='from-control') }}
+                        {{ renden_field(form.goods_content) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.colour.label(class="col-lg-2 col-sm-2 control-label") }}
+                    <div class="col-md-6">
+                        {{ form.colour(class='from-control') }}
+                        {{ renden_field(form.colour) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.unit_price.label(class="col-lg-2 col-sm-2 control-label") }}
+                    <div class="col-md-6">
+                        {{ form.unit_price(class='from-control') }}
+                        {{ renden_field(form.unit_price) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.num.label(class="col-lg-2 col-sm-2 control-label") }}
+                    <div class="col-md-6">
+                        {{ form.num(class='from-control') }}
+                        {{ renden_field(form.num) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.type.label(class="col-lg-2 col-sm-2 control-label") }}
+                    <div class="col-md-6">
+                        {{ form.type(class='from-control') }}
+                        {{ renden_field(form.type) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.status.label(class="col-lg-2 col-sm-2 control-label") }}
+                    <div class="col-md-6">
+                        {{ form.status(class='from-control') }}
+                        {{ renden_field(form.status) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.bill_id.label(class="col-lg-2 col-sm-2 control-label") }}
+                    <div class="col-md-6">
+                        {{ form.bill_id(class='from-control') }}
+                        {{ renden_field(form.bill_id) }}
+                    </div>
+                </div>
+    </div>
+    <dl>
+{#        name:<br></br>#}
+{#        {{ renden_field(form.name) }}<br></br>#}
+{#        goods_content:<br></br>#}
+{#        {{ form.goods_content }}<br></br>#}
+{#        colour:<br></br>#}
+{#        {{ form.colour }}<br></br>#}
+{#        unit_price:<br></br>#}
+{#        {{ form.unit_price }}<br></br>#}
+{#        num:<br></br>#}
+{#        {{ form.num }}<br></br>#}
+{#        type:<br></br>#}
+{#        {{ form.type }}<br></br>#}
+{#        status:<br></br>#}
+{#        {{ form.status }}<br></br>#}
+{#        bill_id:<br></br>#}
+{#        {{ form.bill_id }}#}
+{#    </dl>#}
+    <p><input type=submit>
+</form>
+</body>
+</html>
